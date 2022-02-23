@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Col, FormControl, InputGroup, Row } from "react-bootstrap";
+import OneRow from "./OneRow";
 
 const Count = () => {
   const [input1, setInput1] = useState(null);
@@ -15,54 +16,20 @@ const Count = () => {
 
   return (
     <div className="Count">
-      <Card style={{ width: "500px" }} className="text-center">
-        <Card.Body>
-          <Card.Title>
-            <Row>
-              <Col>1</Col>
-              <Col>x</Col>
-              <Col md={4}>
-                <InputGroup className="mb-3">
-                  <FormControl
-                    style={{ width: "200px" }}
-                    aria-label="Default"
-                    aria-describedby="inputGroup-sizing-default"
-                    onChange={onChangeInput1}
-                  />
-                </InputGroup>
-              </Col>
-              <Col>=</Col>
-              <Col style={{ width: "200px" }}>{input1 * 1}</Col>
-            </Row>
-          </Card.Title>
-        </Card.Body>
-      </Card>
-      <Card style={{ width: "500px" }} className="text-center">
-        <Card.Body>
-          <Card.Title>
-            <Row>
-              <Col>2</Col>
-              <Col>x</Col>
-              <Col md={4}>
-                <InputGroup className="mb-3">
-                  <FormControl
-                    style={{ width: "200px" }}
-                    aria-label="Default"
-                    aria-describedby="inputGroup-sizing-default"
-                    onChange={onChangeInput2}
-                  />
-                </InputGroup>
-              </Col>
-              <Col>=</Col>
-              <Col style={{ width: "200px" }}>{input2 * 2}</Col>
-            </Row>
-          </Card.Title>
-        </Card.Body>
-      </Card>
+      <OneRow
+        onChangeInput={onChangeInput1}
+        inputState={input1}
+        coefficient={1}
+      />
+      <OneRow
+        onChangeInput={onChangeInput2}
+        inputState={input2}
+        coefficient={2}
+      />
       <Card style={{ width: "500px" }}>
         <Card.Body>
-          <Card.Title style={{ marginLeft: 400 }}>
-            {input1 * 1 + input2 * 2}
+          <Card.Title style={{ marginLeft: 200 }}>
+            total = {input1 * 1 + input2 * 2}
           </Card.Title>
         </Card.Body>
       </Card>
